@@ -2,3 +2,18 @@ npm i -D nodemon concurrently
 
 express-validators
 
+heroku deployment
+- 调整项目结构: 将client folder放在server下面
+- 在server.js中添加serve static folder (/client/build/index.html)
+- 在server的package.json中定义heroku-postbuild
+- heroku login
+- git init
+- git add .
+- heroku git:remote -a mighty-fjord-85520
+- git push heroku master
+
+
+https://expressjs.com/en/starter/examples.html
+https://jwt.io/
+https://express-validator.github.io/docs/
+

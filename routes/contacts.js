@@ -3,10 +3,9 @@ const router = express.Router()
 const auth = require('../middleware/auth')
 const { check, validationResult } = require('express-validator/check')
 const Contact = require('../models/Contact')
-const User = require('../models/User')
 
 // @route   GET /api/contacts
-// @desc    Get all users contacts for one user
+// @desc    Get all contacts for one user
 // @access  Private
 router.get('/', auth, async (req, res) => {
   try {
@@ -75,13 +74,17 @@ router.delete('/:id', auth, async (req, res) => {
 // @route   PUT /api/contacts/:id
 // @desc    Update one contact for one user
 // @access  Private
-router.put('/:id', auth, async (req, res) => {
+router.put('/:id', auth, [
+  check('name', 'Name is required').not().isEmpty(),
+  check('email', 'Email is required').isEmail(),
+
+], async (req, res) => {
   const id = req.params.id
   const {name, email, phone, type} = req.body
   const updatedContact = {}
 
-  if (name) updatedContact.name = name
-  if (email) updatedContact.email = email
+  updatedContact.name = name
+  updatedContact.email = email
   if (phone) updatedContact.phone = phone
   if (type) updatedContact.type = type
 

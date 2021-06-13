@@ -13,7 +13,7 @@ const auth = require('../middleware/auth')
 router.post('/', 
 [
   check('email', 'Please use a valid email').isEmail(),
-  check('password', 'Please use password with 6 or more characters').isLength({ min: 6})
+  check('password', 'Please use password with 6 or more characters').isLength({ min: 6 })
 ], async (req, res) => {
 
   const errors = validationResult(req)

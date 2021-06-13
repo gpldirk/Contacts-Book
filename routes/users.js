@@ -13,7 +13,7 @@ router.post('/',
 [
   check('name', 'Please use a name').not().isEmpty(),
   check('email', 'Please use a valid email').isEmail(),
-  check('password', 'Please use password with 6 or more characters').isLength({ min: 6})
+  check('password', 'Please use password with 6 or more characters').isLength({ min: 6 })
 
 ], async (req, res) => {
   const errors = validationResult(req);
@@ -49,7 +49,7 @@ router.post('/',
         }
       }
 
-      jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: 360000 }, (err, token) => {
+      jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: 3600 }, (err, token) => {
         if (err) {
           throw (err)
         } else {

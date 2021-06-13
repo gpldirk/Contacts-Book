@@ -1,5 +1,5 @@
 require('dotenv').config({
-  path: './config/config.env'
+  path: './config/config.copy.env'
 })
 
 const express = require('express')
@@ -7,10 +7,9 @@ const app = express()
 const morgan = require('morgan')
 const path = require('path')
 
-// connect to MongoDB
+// Connect to MongoDB
 const connectDB = require('./config/db')
 connectDB()
-
 
 // Init Middlewares
 app.use(express.json({ extended: false }))
@@ -36,7 +35,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 
-// load port and start listening
+// Load port and start listening
 const port = process.env.PORT || 5000
 
 app.listen(port, () => {
