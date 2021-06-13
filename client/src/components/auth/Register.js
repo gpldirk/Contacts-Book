@@ -13,7 +13,7 @@ const Register = (props) => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      props.history.push('/home')
+      props.history.push('/')
     }
 
     if (error) {

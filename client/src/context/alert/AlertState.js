@@ -27,7 +27,7 @@ const AlertState = (props) => {
       }
     })
 
-    setTimeout(() => {  // remove alert after 3s by specifying the id
+    setTimeout(() => {  // remove alert after 3s
       dispatch({
         type: REMOVE_ALERT,
         payload: id,

@@ -19,7 +19,6 @@ if (localStorage.token) {
 
 const App = () => {
 
-
   return (
     <AuthState>
     <ContactState>
@@ -33,7 +32,7 @@ const App = () => {
             <Switch>
               <Route exact path='/register' component={Register} />
               <Route exact path='/login' component={Login} />
-              <PrivateRoute exact path='/home' component={Home} />
+              <PrivateRoute exact path='/' component={Home} />
               <Route exact path='/about' component={About} />
 
             </Switch>
